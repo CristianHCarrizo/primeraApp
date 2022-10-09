@@ -1,1 +1,65 @@
-<p>home works!</p>
+<br>
+<div class="container">
+  <div class="col"><h1>Registro de Cliente</h1></div>
+
+<form class="m-4">
+
+    <div class="col-6">
+        <label for="nombre" class="form-label" style="margin-top: 15px">Nombre</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="cuadroNombre">
+    </div>
+
+    <div class="col-6">
+        <label for="apellido" class="form-label" style="margin-top: 15px">Apellido</label>
+        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido" [(ngModel)]="cuadroApellido">
+    </div>
+
+    <div class="col-md-6">
+      <label for="Email" class="form-label" style="margin-top: 15px">Email</label>
+      <input type="email" class="form-control" name="Email" id="email" placeholder="ejemplo@gmail.com" [(ngModel)]="cuadroEmail">
+    </div>
+
+    <div class="col-6">
+        <label for="dni" class="form-label" style="margin-top: 15px">DNI</label>
+        <input type="number" class="form-control" name="dni" id="dni" placeholder="DNI" [(ngModel)]="cuadroDNI">
+    </div>
+
+    <div class="col-6">
+      <label for="fechadenacimiento" class="form-label" style="margin-top: 15px">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" name="fdn" id="fechadenacimiento" placeholder="dd/mm/aaaa" [(ngModel)]="cuadroFechaDeNacimiento">
+  </div>
+
+    <div class="col-6">
+        <label for="telefono" class="form-label" style="margin-top: 15px">Teléfono</label>
+        <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="Teléfono" [(ngModel)]="cuadroTelefono">
+    </div>
+
+    <div class="col-6">
+      <label for="direccion" class="form-label" style="margin-top: 15px">Dirección</label>
+      <input type="text" class="form-control" name="direccion" id="direccion" placeholder="San Martín 450" [(ngModel)]="cuadroDireccion">
+    </div><br>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" (click)="agregarCliente()" style="margin-top: 15px">Enviar</button>
+    </div>
+
+  </form>
+
+</div>
+
+
+
+  <div class="container">
+
+    <div class="col" style="text-align: center ; color: rgb(0, 0, 0);"><h1>{{titulo}}</h1></div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <div *ngFor="let Cliente of clientes; let i=index">
+  
+          {{i+1}}: {{Cliente.Nombre}}, {{Cliente.Apellido}}, {{Cliente.Email}}, {{Cliente.DNI}}, {{Cliente.FechaDeNacimiento}}, {{Cliente.Telefono}}, {{Cliente.Direccion}}.
+          
+        </div>
+      </div>  
+    </div>
+  </div>
