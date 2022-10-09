@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { ServicioClientesService } from './servicio-clientes.service';
+import { RegistroFormularioComponent } from './registro-formulario/registro-formulario.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ServicioClientesService } from './servicio-clientes.service';
     NavbarComponent,
     IniciarSesionComponent,
     HomeComponent,
+    RegistroFormularioComponent,
   ],
   imports: [
     BrowserModule,
