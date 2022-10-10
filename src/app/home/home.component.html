@@ -3,14 +3,42 @@
     <div class="col" style="text-align: center ; color: rgb(0, 0, 0);"><h1>{{titulo}}</h1></div>
     <br>
 
-    <div class="row">
-      <div class="col">
-        <div *ngFor="let Cliente of clientes; let i=index">
-  
-          {{i+1}}: {{Cliente.Nombre}}  {{Cliente.Apellido}} - {{Cliente.Email}} - {{Cliente.DNI}} - {{Cliente.FechaDeNacimiento | date:'short'}} - {{Cliente.Telefono}} - {{Cliente.Direccion}}.
-          
-        </div>
+    <div>
+      <div class="table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Orden</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Email</th>
+              <th scope="col">DNI</th>
+              <th scope="col">F. de Nacimiento</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Dirección</th>
+            </tr>
+          </thead>
+          <tbody  *ngFor="let Cliente of clientes; let i=index">
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td>{{Cliente.Nombre}}</td>
+              <td>{{Cliente.Apellido}}</td>
+              <td>{{Cliente.Email}}</td>
+              <td>{{Cliente.DNI}}</td>
+              <td>{{Cliente.FechaDeNacimiento | date:'short'}}</td>
+              <td>{{Cliente.Telefono}}</td>
+              <td>{{Cliente.Direccion}}</td>
+              <div class="btn-toolbar">
+                <div>
+                <a href="#" class="btn btn-success">Editar</a>
+                </div>
+                <div>
+                <a href="#" class="btn btn-danger">Eliminar</a>
+                </div>
+              </div>
+            </tr>
+            </tbody>
+      </table>
       </div>  
     </div>
-
   </div>
