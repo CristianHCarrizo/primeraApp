@@ -3,17 +3,33 @@
   <div class="m-4"><h1>Iniciar Sesión</h1></div>
 
 <div>
-<form class="m-4">
+<form [formGroup]="formLogin" class="m-4" (ngSubmit)="save($event)">
     <div class="form-floating col-6">
-        <input type="email" class="form-control" name="email" id="Email" placeholder="ejemplo@gmail.com">
+        <input type="email" formControlName="email" class="form-control" name="email" id="Email" placeholder="ejemplo@gmail.com">
         <label for="email">Email</label>
-      </div><br>
+    </div>
+    <div>
+      <span *ngIf="this.formLogin.get('email')?.errors?.['required'] && formLogin.get('email')?.touched">
+      (El mail no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formLogin.get('email')?.errors?.['email'] && formLogin.get('email')?.touched">
+        (Formato de email no valido)
+        </span>
+    </div>
+    <br>
       <div class="form-floating col-6">
-        <input type="password" class="form-control" name="Contraseña" id="Contraseña" placeholder="Contraseña">
+        <input type="password" formControlName="contraseña" class="form-control" name="Contraseña" id="Contraseña" placeholder="Contraseña">
         <label for="Contraseña">Contraseña</label>
-      </div><br>
+      </div>
+      <div>
+        <span *ngIf="this.formLogin.get('contraseña')?.errors?.['required'] && formLogin.get('contraseña')?.touched">
+        (Campo obligatorio)
+        </span>
+      </div>
+
+      <br>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <button type="submit" [disabled]="formLogin.invalid" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
       </div>
 </form>
 </div>

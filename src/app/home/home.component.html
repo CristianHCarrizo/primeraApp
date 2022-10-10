@@ -1,15 +1,16 @@
   <br>
   <div class="container">
-
     <div class="col" style="text-align: center ; color: rgb(0, 0, 0);"><h1>{{titulo}}</h1></div>
     <br>
+
     <div class="row">
       <div class="col">
         <div *ngFor="let Cliente of clientes; let i=index">
   
-          {{i+1}}: {{Cliente.Nombre}}, {{Cliente.Apellido}}, {{Cliente.Email}}, {{Cliente.DNI}}, {{Cliente.FechaDeNacimiento}}, {{Cliente.Telefono}}, {{Cliente.Direccion}}.
+          {{i+1}}: {{Cliente.Nombre}}  {{Cliente.Apellido}} - {{Cliente.Email}} - {{Cliente.DNI}} - {{Cliente.FechaDeNacimiento | date:'short'}} - {{Cliente.Telefono}} - {{Cliente.Direccion}}.
           
         </div>
       </div>  
     </div>
+
   </div>

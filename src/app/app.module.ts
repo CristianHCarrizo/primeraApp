@@ -8,7 +8,7 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServicioClientesService } from './servicio-clientes.service';
 import { RegistroFormularioComponent } from './registro-formulario/registro-formulario.component';
 
@@ -26,6 +26,7 @@ import { RegistroFormularioComponent } from './registro-formulario/registro-form
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    ReactiveFormsModule,
   ],
   providers: [ServicioClientesService],
   bootstrap: [AppComponent],

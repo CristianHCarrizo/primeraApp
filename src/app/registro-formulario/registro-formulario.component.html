@@ -2,45 +2,85 @@
 <div class="container">
   <div class="m-4"><h1>Registro de Cliente</h1></div>
 
-<form class="m-4">
+<form [formGroup]="formRegistro" class="m-4" (ngSubmit)="save($event)">
 
     <div class="col-6">
         <label for="nombre" class="form-label" style="margin-top: 15px">Nombre</label>
-        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="cuadroNombre">
+        <input type="text" class="form-control" formControlName="nombre" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="cuadroNombre">
+    </div>
+    <div>
+      <span *ngIf="this.formRegistro.get('nombre')?.errors?.['required'] && formRegistro.get('nombre')?.touched">
+      (El Nombre no puede quedar vacío)
+      </span>
     </div>
 
     <div class="col-6">
         <label for="apellido" class="form-label" style="margin-top: 15px">Apellido</label>
-        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido" [(ngModel)]="cuadroApellido">
+        <input type="text" class="form-control" formControlName="apellido" name="apellido" id="apellido" placeholder="Apellido" [(ngModel)]="cuadroApellido">
+    </div>      
+    <div>
+      <span *ngIf="this.formRegistro.get('apellido')?.errors?.['required'] && formRegistro.get('apellido')?.touched">
+      (El Apellido no puede quedar vacío)
+      </span>
     </div>
 
     <div class="col-md-6">
       <label for="Email" class="form-label" style="margin-top: 15px">Email</label>
-      <input type="email" class="form-control" name="Email" id="email" placeholder="ejemplo@gmail.com" [(ngModel)]="cuadroEmail">
+      <input type="email" class="form-control" formControlName="email" name="Email" id="email" placeholder="ejemplo@gmail.com" [(ngModel)]="cuadroEmail">
+    </div>
+    <div>
+      <span *ngIf="this.formRegistro.get('email')?.errors?.['required'] && formRegistro.get('email')?.touched">
+      (El mail no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formRegistro.get('email')?.errors?.['email'] && formRegistro.get('email')?.touched">
+        (Formato de email no valido)
+        </span>
     </div>
 
     <div class="col-6">
         <label for="dni" class="form-label" style="margin-top: 15px">DNI</label>
-        <input type="number" class="form-control" name="dni" id="dni" placeholder="DNI" [(ngModel)]="cuadroDNI">
+        <input type="number" class="form-control" formControlName="dni" name="dni" id="dni" placeholder="DNI" [(ngModel)]="cuadroDNI">
+    </div>
+    <div>
+      <span *ngIf="this.formRegistro.get('dni')?.errors?.['required'] && formRegistro.get('dni')?.touched">
+      (El DNI no puede quedar vacío)
+      </span>
     </div>
 
     <div class="col-6">
       <label for="fechadenacimiento" class="form-label" style="margin-top: 15px">Fecha de Nacimiento</label>
-      <input type="date" class="form-control" name="fdn" id="fechadenacimiento" placeholder="dd/mm/aaaa" [(ngModel)]="cuadroFechaDeNacimiento">
+      <input type="date" class="form-control" formControlName="fechadenacimiento" name="fdn" id="fechadenacimiento" placeholder="dd/mm/aaaa" [(ngModel)]="cuadroFechaDeNacimiento">
+  </div>
+  <div>
+    <span *ngIf="this.formRegistro.get('fechadenacimiento')?.errors?.['required'] && formRegistro.get('fechadenacimiento')?.touched">
+    (Campo obligatorio)
+    </span>
   </div>
 
     <div class="col-6">
         <label for="telefono" class="form-label" style="margin-top: 15px">Teléfono</label>
-        <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="Teléfono" [(ngModel)]="cuadroTelefono">
+        <input type="tel" class="form-control" formControlName="telefono" name="telefono" id="telefono" placeholder="Teléfono" [(ngModel)]="cuadroTelefono">
+    </div>
+    <div>
+      <span *ngIf="this.formRegistro.get('telefono')?.errors?.['required'] && formRegistro.get('telefono')?.touched">
+      (Campo obligatorio)
+      </span>
     </div>
 
     <div class="col-6">
       <label for="direccion" class="form-label" style="margin-top: 15px">Dirección</label>
-      <input type="text" class="form-control" name="direccion" id="direccion" placeholder="San Martín 450" [(ngModel)]="cuadroDireccion">
-    </div><br>
+      <input type="text" class="form-control" formControlName="direccion" name="direccion" id="direccion" placeholder="San Martín 450" [(ngModel)]="cuadroDireccion">
+    </div>
+    <div>
+      <span *ngIf="this.formRegistro.get('direccion')?.errors?.['required'] && formRegistro.get('direccion')?.touched">
+      (Campo obligatorio)
+      </span>
+    </div>
+
+    <br>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" (click)="agregarCliente()" style="margin-top: 15px">Enviar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="formRegistro.invalid" (click)="agregarCliente()" style="margin-top: 15px">Enviar</button>
     </div>
 
   </form>
