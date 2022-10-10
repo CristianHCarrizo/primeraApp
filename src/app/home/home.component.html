@@ -24,16 +24,16 @@
               <td>{{Cliente.Nombre}}</td>
               <td>{{Cliente.Apellido}}</td>
               <td>{{Cliente.Email}}</td>
-              <td>{{Cliente.DNI}}</td>
+              <td>{{Cliente.DNI | number}}</td>
               <td>{{Cliente.FechaDeNacimiento | date:'short'}}</td>
               <td>{{Cliente.Telefono}}</td>
               <td>{{Cliente.Direccion}}</td>
               <div class="btn-toolbar">
                 <div>
-                <a href="#" class="btn btn-success">Editar</a>
+                <a class="btn btn-success">Editar</a>
                 </div>
                 <div>
-                <a href="#" class="btn btn-danger">Eliminar</a>
+                <a class="btn btn-danger">Eliminar</a>
                 </div>
               </div>
             </tr>
